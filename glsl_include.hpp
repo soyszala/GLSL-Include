@@ -43,12 +43,14 @@ SOFTWARE.
 //####################
 namespace glsl_include {
 
-    /**
-     *  Init once, load any GLSL shader files by calling load_shader()
-     */
     class ShaderLoader {
     public:
 
+        /**
+         *  Init once, load any GLSL shader files by calling load_shader()
+         * 
+         *  @param include_kw The custom keyword to be used in the shader file to indicate an #include statement.
+         */
         ShaderLoader(const char* _custom_keyword)
             : include_keyword(_custom_keyword)
         {
@@ -60,7 +62,6 @@ namespace glsl_include {
         *   Loads a shader file and handles #include statements.
         * 
         *   @param file_path The path to the shader file to be loaded.
-        *   @param include_kw The custom keyword to be used in the shader file to indicate an #include statement.
         * 
         *   @return A string containing the contents of the shader file, with any custom #include statements replaced by their contents.
         */
@@ -145,6 +146,7 @@ namespace glsl_include {
         // Custom keyword
         std::string include_keyword;
 
+
         /**
         *   Helper function that strips filename from a path, basically getting the path to the directory containing the file
         * 
@@ -172,7 +174,7 @@ namespace glsl_include {
          *  @param start The starting character to search for.
          *  @param end The ending character to search for.
          *
-         *  @example: glsl_include::extract_first_between("extract_between_underscores", '_', '_'); // will return "between"
+         *  @example: extract_first_between("extract_between_underscores", '_', '_'); // will return "between"
          * 
          *  @return The extracted string (excluding the symbols themselves), or an empty string if no match is found.
          */
@@ -187,7 +189,7 @@ namespace glsl_include {
             }
             else
             {
-                std::cout << "ERROR [ glsl_include::extract_first_between ]: Start '" << start_symbol << "' or end symbol '" << end_symbol << "' not found" << std::endl;
+                std::cout << "ERROR [ ShaderLoader::extract_first_between ]: Start '" << start_symbol << "' or end symbol '" << end_symbol << "' not found" << std::endl;
             }
             return extracted_string;
         }
