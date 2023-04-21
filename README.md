@@ -39,7 +39,7 @@ Rules of your include statement:
 
 Side notes:
 - I settled on using `//#include` as my custom keyword, because it resembles C, but writing it as a comment made some syntax highlighters stop complaining about it.
-- For any hardcore Windows users out there: You can use single backslash in the shader include statements, it should not cause trouble.
+- For any hardcore Windows users out there: You can use single backslash in the shader include paths, it should not cause trouble.
 
 ### Example source code and output
 
